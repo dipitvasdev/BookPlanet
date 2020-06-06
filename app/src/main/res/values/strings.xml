@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Book Planet</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="favourites">Favourites</string>
+    <string name="about_app">About App</string>
+    <string name="profile">Profile</string>
+    <string name="nav">BOOK PLANET</string>
+    <string name="open_drawer">Open Drawer</string>
+    <string name="close_drawer">Close Drawer </string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="dashboard_header">DASHBOARD</string>
+    <string name="favourites_header">My Favourites</string>
+    <string name="profile_header">PROFILE</string>
+    <string name="about_app_header">ABOUT APP</string>
+    <string name="dipit">DIPIT VASDEV</string>
+    <string name="email">dipitvasdevdv@gmail.com</string>
+    <string name="email_header">EMAIL</string>
+    <string name="phone_number">PHONE NUMBER</string>
+    <string name="ph">+91 9540798508</string>
+    <string name="about_desp">THIS IS A PERSONAL BOOK APP, WHICH WAS MADE BY ME , for #30DaysOfKotlin. I LEARNED A LOT OF THINGS WHILE BUILDING THIS APP. ITS STILL VERY BASIC , BUT I AM PROUD THAT IT\'S MY FIRST. \n\n I WOULD LIKE TO THANK @GoogleDevIN FOR GIVING ME SUCH A GREAT OPPORTUNITY TO LEARN AND GROW.\n I LOOK FORWARD TO MORE SUCH EVENT IN THE FUTRURE.</string>
+    <string name="dipitvasdev">\@DipitVasdev</string>
+</resources>
