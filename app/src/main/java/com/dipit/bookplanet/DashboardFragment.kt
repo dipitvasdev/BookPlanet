@@ -1,19 +1,28 @@
 package com.dipit.bookplanet
 
+import android.app.AlertDialog
+import android.app.DownloadManager
 import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.android.volley.Request
+import com.android.volley.Response
+import com.android.volley.toolbox.JsonObjectRequest
+import com.android.volley.toolbox.Volley
+import com.dipit.bookplanet.util.ConnectionManager
 
 
 class DashboardFragment : Fragment() {
     lateinit var recyclerDash:RecyclerView
     lateinit var layoutManager: RecyclerView.LayoutManager
+    lateinit var btnCheckInternet: Button
     val booklist= arrayListOf(
         "Case Closed Vol. 1",
         "The Kiss Quotient",
@@ -45,6 +54,35 @@ class DashboardFragment : Fragment() {
     ): View? {
         val view=inflater.inflate(R.layout.fragment_dashboard,container,false)
         recyclerDash=view.findViewById(R.id.recyclerview)
+        btnCheckInternet=view.findViewById(R.id.btnCheckInternet)
+        btnCheckInternet.setOnClickListener {
+            if(ConnectionManager().checkConnectivity(activity as Context)){
+                val dialog = AlertDialog.Builder(activity as Context)
+                dialog.setTitle("Success")
+                dialog.setMessage("Internet Connection Found")
+                dialog.setPositiveButton("Ok") {text,listener->
+
+                }
+                dialog.setNegativeButton("Cancel") {text,listener->
+
+                }
+                dialog.create()
+                dialog.show()
+
+            }else{
+                val dialog = AlertDialog.Builder(activity as Context)
+                dialog.setTitle("Error")
+                dialog.setMessage("Internet Connection not Found")
+                dialog.setPositiveButton("Ok") {text,listener->
+
+                }
+                dialog.setNegativeButton("Cancel") {text,listener->
+
+                }
+                dialog.create()
+                dialog.show()
+            }
+        }
         layoutManager=LinearLayoutManager(activity)
         recyclerAdapter= DashboardAdapter(activity as Context,bookInfoList)
         recyclerDash.adapter=recyclerAdapter
@@ -55,6 +93,21 @@ class DashboardFragment : Fragment() {
                 (layoutManager as LinearLayoutManager).orientation
             )
         )
+        val queue= Volley.newRequestQueue(activity as Context)
+        val url="http://13.235.250.119/v1/book/fetch_books/"
+        val jsonObjectRequest= object : JsonObjectRequest(Request.Method.GET,url,null,Response.Listener {
+            println("Response is $it")
+        } , Response.ErrorListener {
+            println("Error is $it")
+        }) {
+            override fun getHeaders(): MutableMap<String, String> {
+                val headers= HashMap<String,String>()
+                headers["Content-type"]= "application/json"
+                headers["token"] = "ed0e68368529be"
+                return headers
+            }
+        }
+        queue.add(jsonObjectRequest)
         return view
     }
 

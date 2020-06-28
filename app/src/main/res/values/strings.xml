@@ -19,4 +19,5 @@
     <string name="ph">+91 9540798508</string>
     <string name="about_desp">THIS IS A PERSONAL BOOK APP, WHICH WAS MADE BY ME , for #30DaysOfKotlin. I LEARNED A LOT OF THINGS WHILE BUILDING THIS APP. ITS STILL VERY BASIC , BUT I AM PROUD THAT IT\'S MY FIRST. \n\n I WOULD LIKE TO THANK @GoogleDevIN FOR GIVING ME SUCH A GREAT OPPORTUNITY TO LEARN AND GROW.\n I LOOK FORWARD TO MORE SUCH EVENT IN THE FUTRURE.</string>
     <string name="dipitvasdev">\@DipitVasdev</string>
+    <string name="connection">CHECK CONNECTION</string>
 </resources>
