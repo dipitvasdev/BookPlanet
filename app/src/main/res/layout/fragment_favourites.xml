@@ -5,164 +5,23 @@
     android:layout_height="match_parent"
     tools:context=".FavouritesFragment"
     android:background="#eeeeee">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/txtFavourites"
-        android:layout_width="wrap_content"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerFav"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/favourites_header"
-        android:textStyle="bold"
-        android:textSize="20sp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:padding="6dp"
-        android:textColor="#f50057"/>
-    <LinearLayout
-        android:id="@+id/llContent1"
-        android:layout_below="@+id/txtFavourites"
+        android:layout_marginTop="2dp"
+        />
+    <RelativeLayout
+        android:id="@+id/progressLayout"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:orientation="horizontal"
-        android:weightSum="6">
-
-        <!--The weight sum property is used to divide the layout into
-        different parts and then giving each layout a particular weight
-        gives it that amount of space on the screen-->
-
-
-        <!--Since each parent layout will have a specific weight, we need
-        not give any width to those layout-->
-
-        <ImageView
-            android:layout_weight="1.5"
-            android:id="@+id/imgBookImage1"
-            android:layout_width="0dp"
-            android:layout_height="160dp"
-            android:src="@drawable/magic_of_thinking_big"
-            android:padding="5dp"
-            android:scaleType="centerCrop"/>
-
-        <RelativeLayout
-            android:layout_weight="3.3"
-            android:layout_width="0dp"
-            android:layout_height="match_parent">
-            <TextView
-                android:id="@+id/txtBookName1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="The Magic Of Thinking Big"
-                android:padding="8dp"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:layout_marginTop="20dp"
-                android:textColor="#f50057"/>
-
-            <TextView
-                android:id="@+id/txtBookAuthor"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/txtBookName1"
-                android:text="David J. Schwartz"
-                android:padding="8dp"
-                android:textColor="@color/colorPrimary"
-                android:textSize="15sp"/>
-
-        </RelativeLayout>
-
-
-        <!--Many times we see that texts have an image along with them to
-        their right or left. This is added with the help of the
-        drawableLeft (or drawableRight and so on) attribute-->
-
-        <TextView
-            android:id="@+id/txtBookRating1"
-            android:layout_weight="1.2"
-            android:layout_width="0dp"
-            android:padding="4dp"
+        android:layout_height="match_parent"
+        android:background="#eeeeee">
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/ic_stars"
-            android:textColor="#ffca28"
-            android:text="5.0"
-            android:layout_gravity="center"
-            android:drawablePadding="4dp"
-            android:textSize="18sp"
-            android:textStyle="bold">
+            android:layout_centerInParent="true"
+            />
+    </RelativeLayout>
 
-        </TextView>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_marginTop="20dp"
-        android:id="@+id/llContent2"
-        android:layout_below="@+id/llContent1"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:orientation="horizontal"
-        android:weightSum="6">
-
-        <!--The weight sum property is used to divide the layout into
-        different parts and then giving each layout a particular weight
-        gives it that amount of space on the screen-->
-
-
-        <!--Since each parent layout will have a specific weight, we need
-        not give any width to those layout-->
-
-        <ImageView
-            android:layout_weight="1.5"
-            android:id="@+id/imgBookImage2"
-            android:layout_width="0dp"
-            android:layout_height="160dp"
-            android:src="@drawable/kiss_quetient"
-            android:padding="5dp"
-            android:scaleType="centerCrop"/>
-
-        <RelativeLayout
-            android:layout_weight="3.3"
-            android:layout_width="0dp"
-            android:layout_height="match_parent">
-            <TextView
-                android:id="@+id/txtBookName2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="The Kiss Quotient"
-                android:padding="8dp"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:layout_marginTop="20dp"
-                android:textColor="#f50057"/>
-
-            <TextView
-                android:id="@+id/txtBookAuthor2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/txtBookName2"
-                android:text="David J. Schwartz"
-                android:padding="8dp"
-                android:textColor="@color/colorPrimary"
-                android:textSize="15sp"/>
-
-        </RelativeLayout>
-
-
-        <!--Many times we see that texts have an image along with them to
-        their right or left. This is added with the help of the
-        drawableLeft (or drawableRight and so on) attribute-->
-
-        <TextView
-            android:id="@+id/txtBookRating2"
-            android:layout_weight="1.2"
-            android:layout_width="0dp"
-            android:padding="4dp"
-            android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/ic_stars"
-            android:textColor="#ffca28"
-            android:text="4.8"
-            android:layout_gravity="center"
-            android:drawablePadding="4dp"
-            android:textSize="18sp"
-            android:textStyle="bold">
-
-        </TextView>
-    </LinearLayout>
 </RelativeLayout>

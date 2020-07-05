@@ -1,6 +1,7 @@
 package com.dipit.bookplanet
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -12,6 +13,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Picasso
 
 class DashboardAdapter(val context: Context, val itemList:ArrayList<Book>) :RecyclerView.Adapter<DashboardAdapter.DashboardViewHolder>(){
     class DashboardViewHolder(view:View):RecyclerView.ViewHolder(view){
@@ -21,7 +23,6 @@ class DashboardAdapter(val context: Context, val itemList:ArrayList<Book>) :Recy
         val txtBookRating:TextView=view.findViewById(R.id.txtBookRating)
         val imgBookImage:ImageView=view.findViewById(R.id.imgBookImage)
         val llContent:LinearLayout=view.findViewById(R.id.llContent)
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DashboardViewHolder {
@@ -37,11 +38,13 @@ class DashboardAdapter(val context: Context, val itemList:ArrayList<Book>) :Recy
         val book=itemList[position]
         holder.txtBookName.text=book.bookName
         holder.txtBookAuthor.text=book.bookAuthor
-        holder.txtBookPrice.text=book.bookCost
+        holder.txtBookPrice.text=book.bookPrice
         holder.txtBookRating.text=book.bookRating
-        holder.imgBookImage.setImageResource(book.bookImage)
+        Picasso.get().load(book.bookImage).error(R.drawable.book).into(holder.imgBookImage)
         holder.llContent.setOnClickListener {
-            Toast.makeText(context,"${holder.txtBookName.text}",Toast.LENGTH_SHORT).show()
+            val intent=Intent(context,DescriptionActivity::class.java)
+            intent.putExtra("book_id",book.bookId)
+            context.startActivity(intent)
         }
     }
 }
